@@ -1,7 +1,19 @@
+<% if user_signed_in? %>
+  <h2><%= "Signed in as #{current_user.email}" %></h2>
+<% end %>
+
 <% @categories.each do |category| %>
   <%= link_to category.title, category_path(category) %>
 <% end %>
 
 <% @items.each do |item| %>
-  <p><%= item.title %> | <%= number_to_currency(item.price) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
+  <p><%= item.title %> | <%= number_to_currency(item.print_price) %> | 
+  <% if user_signed_in? %>
+    <%= button_to 'Add to Cart', line_items_path(item_id: item) %>
+  <% end %>
+  </p>
+
 <% end %>
+
+
+
