@@ -56,6 +56,9 @@ describe 'Feature Test: Cart', :type => :feature do
      end
     end
   end
+
+# ----------- # ----------- # ----------- # -----------
+
   describe "Adding To Cart" do
 
     context "logged in" do
