@@ -33,6 +33,7 @@ class Cart < ActiveRecord::Base
       new_inventory = li.item.inventory - li.quantity 
       li.item.update(inventory: new_inventory)
     end
+    self.status = 'submitted'
     self.user.current_cart = nil
   end
 
